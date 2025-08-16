@@ -1,0 +1,252 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'PaymentAdviseHeader', 
+    typeNamePlural: 'PaymentAdviseHeader', 
+    title: {
+      type: #STANDARD, 
+      label: 'PaymentAdviseHeader', 
+      value: 'PaymentAdviseNumber'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'PaymentAdviseNumber', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate entity ZC_PMTADVHEADER
+    with 
+{
+@UI.facet: [ {
+    id: 'idCollection', 
+    type: #COLLECTION, 
+    label: 'Payment Advise', 
+    position: 10 
+  }, 
+  {
+    id: 'idIdentification', 
+    parentId: 'idCollection', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'General Information', 
+    position: 20 
+  },
+  {
+    id: 'idadvancelicimport', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Bardana Summary', 
+    position: 30 , 
+    targetElement: '_PmtAmtBDSumm'
+  }, 
+  {
+    id: 'idadvancelicexport', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Deduction Summary', 
+    position: 40 , 
+    targetElement: '_PmtAmtDeduct'
+  } ]
+  
+  @UI.lineItem: [ {
+    position: 10 , 
+      label: 'Create',
+      type: #FOR_ACTION,
+      dataAction: 'createPMTADVCData',
+      invocationGrouping: #CHANGE_SET,
+    importance: #HIGH
+  }, {
+    position: 10 , 
+    importance: #HIGH, 
+    label: 'Payment Advise'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Payment Advise'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  @EndUserText.label: 'Payment Advise'
+      PaymentAdviseNumber;
+      
+        @UI.lineItem: [ {
+    position: 20 , 
+    importance: #HIGH, 
+    label: 'GRN'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'GRN'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  @EndUserText.label: 'GRN'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_MaterialDocumentHeader_2', element: 'MaterialDocument' } }]
+    GRNNumber;
+    
+     @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'GRN Date'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'GRN Date'
+  } ]
+  @EndUserText.label: 'GRN Date'
+    GRNDate;
+     
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH, 
+    label: 'Due Date'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Due Date'
+  } ]
+  @EndUserText.label: 'Due Date'
+    DueDate;
+    
+     @UI.lineItem: [ {
+    position: 50 , 
+    importance: #HIGH, 
+    label: 'Inspection Lot'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Inspection Lot'
+  } ]
+  @EndUserText.label: 'Inspection Lot'
+    InspectionLot;
+    
+    @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH, 
+    label: 'Broker Name'
+  } ]
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Broker Name'
+  } ]
+      @EndUserText.label: 'Broker Name'
+    BrokerName;
+    
+    @UI.lineItem: [ {
+    position: 70 , 
+    importance: #HIGH, 
+    label: 'Supplier Name'
+  } ]
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'Supplier Name'
+  } ]
+  @EndUserText.label: 'Supplier Name'
+    SupplierName;
+    
+    @UI.lineItem: [ {
+    position: 80 , 
+    importance: #HIGH, 
+    label: 'Bargain No.'
+  } ]
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'Bargain No.'
+  } ]
+  @EndUserText.label: 'Bargain No.'
+    BargainNumber;
+    
+    @UI.lineItem: [ {
+    position: 90 , 
+    importance: #HIGH, 
+    label: 'Bargain Date'
+  } ]
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'Bargain Date'
+  } ]
+  @EndUserText.label: 'Bargain Date'
+    BargainDate;
+    
+    @UI.lineItem: [ {
+    position: 100 , 
+    importance: #HIGH, 
+    label: 'PO No.'
+  } ]
+  @UI.identification: [ {
+    position: 100 , 
+    label: 'PO No.'
+  } ]
+  @EndUserText.label: 'PO No.'
+    PONumber;
+    
+     @UI.lineItem: [ {
+    position: 110 , 
+    importance: #HIGH, 
+    label: 'Place'
+  } ]
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'Place'
+  } ]
+  @EndUserText.label: 'Place'
+    Place;
+    
+    @UI.lineItem: [ {
+    position: 120 , 
+    importance: #HIGH, 
+    label: 'Invoice Number'
+  } ]
+  @UI.identification: [ {
+    position: 120 , 
+    label: 'Invoice Number'
+  } ]
+  @EndUserText.label: 'Invoice Number'
+    InvoiceNumber;
+    
+    @UI.lineItem: [ {
+    position: 130 , 
+    importance: #HIGH, 
+    label: 'Vehicle Number'
+  } ]
+  @UI.identification: [ {
+    position: 130 , 
+    label: 'Vehicle Number'
+  } ]
+  @EndUserText.label: 'Vehicle Number'
+    VehicleNumber;
+    
+    @UI.lineItem: [ {
+    position: 140 , 
+    importance: #HIGH, 
+    label: 'Invoice Date'
+  } ]
+  @UI.identification: [ {
+    position: 140 , 
+    label: 'Invoice Date'
+  } ]
+  @EndUserText.label: 'Invoice Date'
+    InvoiceDate;
+    
+    @UI.hidden: true
+    CreatedBy;
+    @UI.hidden: true
+    CreatedAt;
+     @UI.hidden: true
+  @UI.lineItem: [ {
+    position: 300 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 300 
+  } ]
+    LastChangedBy;
+    @UI.hidden: true
+    LastChangedAt;  
+    @UI.hidden: true
+    LocalLastChangedAt;  
+}

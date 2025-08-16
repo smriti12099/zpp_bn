@@ -1,0 +1,42 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_PMTADVHEADER alias PmtAdvHeader
+use etag
+{
+  use update;
+  use delete;
+
+  use action createPMTADVCData;
+
+  use association _PmtAmtBDSumm { create; }
+  use association _PmtAmtDeduct { create; }
+  use association _PmtAdvMtSumm { create; }
+}
+
+define behavior for ZC_PMTADVBDSUMM alias PmtAdvBDSumm
+use etag
+{
+  use update;
+  use delete;
+
+  use association _PmtAdvHeader;
+}
+
+define behavior for ZC_PMTADVDEDUCT alias PmtAdvDeduct
+use etag
+{
+  use update;
+  use delete;
+
+  use association _PmtAdvHeader;
+}
+
+define behavior for ZC_PMTADVMTSUMM alias PmtAdvMtSumm
+use etag
+{
+  use update;
+  use delete;
+
+  use association _PmtAdvHeader;
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Deduction Advice",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Deduction Advice"
+  },
+  "ui5AppDetails": {
+    "appId": "zpaymentadvice"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_132B8995611AB74CF83750312B534B2C1268315C_TM",
+    "semanticObject": "ZDeductionAdvice",
+    "action": "Maintain",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_132B8995611AB74CF83750312B534B2C1268315C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Deduction Advice",
+        "subtitle": "ZDAdv"
+      }
+    }
+  ]
+}
